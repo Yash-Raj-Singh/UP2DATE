@@ -2,11 +2,12 @@ package com.example.up2date
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), newsItemClicked {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val s = fetchData()
-        val adapter = Newsadapter(s)
+        val adapter = Newsadapter(s, this)
         recyclerView.adapter = adapter
     }
 
@@ -25,5 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         return lists
+    }
+
+    override fun onItemClick(item:String){
+        Toast.makeText(this, "Item is $item", Toast.LENGTH_LONG).show()
     }
 }
