@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(), newsItemClicked {
 
         val url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=104dfe7bf6294d6687ba78c0cb327dd3"
 
+
         //Alternate API
         //val url = "https://saurav.tech/NewsAPI/everything/cnn.json"
 
